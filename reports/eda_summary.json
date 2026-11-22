@@ -1,0 +1,16 @@
+{
+  "rows": 3000,
+  "columns": 11,
+  "missing_pct": {
+    "year_built": 2.13,
+    "lot_size": 3.77,
+    "dist_to_center_km": 3.07
+  },
+  "price_skew": 0.97,
+  "top_corr_with_price": {
+    "sqft": 0.74,
+    "bedrooms": 0.61,
+    "lot_size": 0.51,
+    "bathrooms": 0.51
+  }
+}

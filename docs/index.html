@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>House Price Predictor — ML Portfolio Project</title>
+<style>
+:root{--bg:#f6f5ff;--card:#fff;--ink:#22223b;--mut:#64647c;--pri:#6c5ce7;--bd:#e3e1f7}
+@media(prefers-color-scheme:dark){:root{--bg:#14131f;--card:#1e1d2e;--ink:#eeeefc;--mut:#a3a3bd;--bd:#34324f}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.w{max-width:980px;margin:auto;padding:28px 20px}header{padding:56px 0 24px}
+h1{font-size:clamp(30px,5vw,48px);margin:0 0 10px}h1 span{color:var(--pri)}h2{margin:44px 0 14px}
+.lead{color:var(--mut);font-size:18px;max-width:680px}.tags span{display:inline-block;background:var(--card);border:1px solid var(--bd);border-radius:99px;padding:4px 12px;margin:14px 6px 0 0;font-size:13px}
+.btn{display:inline-block;margin:22px 10px 0 0;padding:11px 20px;border-radius:10px;background:var(--pri);color:#fff;text-decoration:none;font-weight:600}.btn.o{background:none;border:1px solid var(--pri);color:var(--pri)}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}.k{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px}.k b{display:block;font-size:30px;color:var(--pri)}.k span{color:var(--mut);font-size:14px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px}.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--mut);font-size:14px}
+img{width:100%;border-radius:12px;border:1px solid var(--bd);background:#fff}.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--bd)}th{color:var(--mut);font-size:13px}
+pre{background:#1e1e2e;color:#cdd6f4;padding:16px;border-radius:12px;overflow-x:auto;font-size:13px}footer{color:var(--mut);padding:40px 0;font-size:14px}
+</style></head><body><div class="w">
+<header><h1>🏠 House Price <span>Predictor</span></h1>
+<p class="lead">An end-to-end ML project covering exploratory analysis, model comparison and tuning, and a deployed Flask app with a JSON API.</p>
+<div class="tags"><span>Python</span><span>scikit-learn</span><span>Pandas</span><span>Flask</span><span>Docker</span><span>pytest</span></div>
+<a class="btn" href="https://github.com/YOUR-USERNAME/house-price-predictor">View on GitHub</a><a class="btn o" href="#api">Try the API</a></header>
+<div class="kp"><div class="k"><b>0.9468</b><span>Test R²</span></div><div class="k"><b>$15,407</b><span>Mean abs. error</span></div><div class="k"><b>6.41%</b><span>MAPE</span></div><div class="k"><b>3,000</b><span>Training homes</span></div></div>
+<h2>Workflow</h2><div class="g"><div class="card"><h3>1. Data & EDA</h3><p>Cleaned missing values, explored skew, correlations and neighborhood effects.</p></div><div class="card"><h3>2. Features</h3><p>Engineered house age, space per bedroom and bath/bed ratio inside a leak-free pipeline.</p></div><div class="card"><h3>3. Modeling</h3><p>Ridge, Random Forest and Gradient Boosting compared with 5-fold CV, then tuned.</p></div><div class="card"><h3>4. Deployment</h3><p>Flask web app + JSON API, Docker image and pytest suite.</p></div></div>
+<h2>Exploratory analysis</h2><div class="g"><img src="img/price_distribution.png" alt="Price distribution"><img src="img/price_drivers.png" alt="Price drivers"></div>
+<h2>Model comparison</h2><div class="tw"><table><tr><th>Model</th><th>R²</th><th>MAE</th><th>MAPE</th></tr><tr><td>Ridge (baseline)</td><td>0.9176</td><td>$18,668</td><td>7.85%</td></tr><tr><td>Random Forest</td><td>0.9043</td><td>$21,429</td><td>9.1%</td></tr><tr><td>Gradient Boosting</td><td>0.9389</td><td>$16,782</td><td>7.08%</td></tr><tr><td>Gradient Boosting (tuned)</td><td>0.9468</td><td>$15,407</td><td>6.41%</td></tr></table></div>
+<div class="g" style="margin-top:14px"><img src="img/model_performance.png" alt="Predicted vs actual"><img src="img/feature_importance.png" alt="Feature importance"></div>
+<h2 id="api">Usage</h2><pre>pip install -r requirements.txt
+cd src &amp;&amp; python generate_data.py &amp;&amp; python train.py &amp;&amp; cd ..
+python app/app.py   # http://localhost:5000
+
+curl -X POST localhost:5000/predict -H "Content-Type: application/json" \
+  -d '{"sqft":1800,"bedrooms":3,"bathrooms":2,"year_built":2005,"lot_size":5500,
+       "garage_spaces":2,"overall_quality":7,"has_pool":0,
+       "dist_to_center_km":6,"neighborhood":"Oakwood"}'</pre>
+<footer>Built by Priyanka Raj · Replace the GitHub link above after you push.</footer></div></body></html>
